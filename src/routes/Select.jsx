@@ -28,7 +28,7 @@ function Select() {
   
      localStorage.setItem('result', JSON.stringify(result));
       navigate('/loader'); // go to output page
-      alert('Upload successful:', result);
+      // alert('Upload successful:', result);
     } catch (error) {
       console.error('Upload failed ', error);
          

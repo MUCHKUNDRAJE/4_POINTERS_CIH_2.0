@@ -22,9 +22,10 @@ console.log(result); // "bin blue in n nine soon"
           <div className="relative w-full max-w-[720px] aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border-4 border-purple-500 hover:border-pink-500 transition-all duration-300">
             <video
               ref={videoRef}
-              src="/image/bbie9s.mp4"
+              src="/image/swai3a.mp4"
               className="absolute top-0 left-0 w-full h-full object-conatin rounded-2xl"
               muted
+              loop
               autoPlay
               playsInline
             />
