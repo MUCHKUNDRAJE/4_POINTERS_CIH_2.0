@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { useNavigate } from 'react-router-dom';
 
+
 function Loading() {
   const textRefs = useRef([]);
   const containerRef = useRef(null); // ✅ for fading the whole content
@@ -35,6 +36,22 @@ function Loading() {
       navigate('/output'); // Replace with your route
     });
   }, [navigate]);
+
+// fetch('')
+//   .then(response => {
+//     if (!response.ok) {
+//       throw new Error('Network response was not ok');
+//     }
+//     return response.json(); 
+//   })
+//   .then(data => {
+//     console.log(data); 
+//   })
+//   .catch(error => {
+//     console.error('There was a problem with the fetch operation:', error);
+//   });
+
+  
 
   return (
     <div

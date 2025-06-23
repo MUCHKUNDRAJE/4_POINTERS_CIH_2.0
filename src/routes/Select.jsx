@@ -6,7 +6,7 @@ function Select() {
   const navigate = useNavigate();
 
   const handleUploadClick = () => {
-    fileInputRef.current.click(); // trigger hidden file input
+    fileInputRef.current.click(); 
   };
 
   const handleFileChange = async (event) => {
@@ -14,7 +14,7 @@ function Select() {
     if (!file) return;
 
     const formData = new FormData();
-    formData.append('video', file); // key name should match your backend
+    formData.append('video', file); 
     console.log(formData);
 
     try {
@@ -27,8 +27,7 @@ function Select() {
       console.log('Upload successful:', result);
   
      localStorage.setItem('result', JSON.stringify(result));
-      navigate('/loader'); // go to output page
-      // alert('Upload successful:', result);
+      navigate('/loader'); 
     } catch (error) {
       console.error('Upload failed ', error);
          
@@ -42,15 +41,9 @@ function Select() {
       </div>
 
       <div className='flex gap-30'>
-        {/* Live Video Card */}
-        <div className='h-80 w-80 flex items-center justify-center bg-[#2C263C] hover:scale-110 transition-all rounded-2xl border-dashed border-2 cursor-pointer '>
-          <div className='h-40 w-40 flex items-center justify-center flex-col'>
-            <i className="ri-video-on-fill text-6xl text-[#533E6F]"></i>
-            <h1>Live Video</h1>
-          </div>
-        </div>
+      
 
-        {/* Upload Card */}
+        
         <div
           className='h-80 w-80 flex items-center justify-center bg-[#2C263C] hover:scale-110 transition-all rounded-2xl border-dashed border-2 cursor-pointer'
           onClick={handleUploadClick}
@@ -62,7 +55,7 @@ function Select() {
         </div>
       </div>
 
-      {/* Hidden File Input */}
+    
       <input
         type="file"
         accept="video/*"
