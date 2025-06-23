@@ -11,6 +11,8 @@ function OutputVedio() {
   console.log(result); // "bin blue in n nine soon"
 
   const [gifURL, setgifURL] = useState();
+  const filename = localStorage.getItem('filename');
+  console.log(filename)
 
 
   useEffect(() => {
@@ -49,7 +51,7 @@ function OutputVedio() {
         <div className="relative w-full max-w-[720px] aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border-4 border-purple-500 hover:border-pink-500 transition-all duration-300">
           <video
             ref={videoRef}
-            src="/image/swai3a.mp4"
+            src={`/image/${filename}`}
             className="absolute top-0 left-0 w-full h-full object-conatin rounded-2xl"
             muted
             loop
@@ -76,11 +78,16 @@ function OutputVedio() {
       </div>
 
 
-<div>
+<div className='flex flex-col'>
 <div className='h-[150px] w-[300px] border-3 rounded-2xl overflow-hidden '>
+  
       {gifURL && <img src={gifURL} className='h-full w-full bg-red-200' alt="Prediction result" />}
+</div >
+<div className='text-white w-64 text-center text-md ml-2 leading-5 mt-3 '>
+  <div></div>
+   visual representation of the input data as seen by the machine learning model during Prediction
 </div>
-
+     
 </div>
 
     </div>

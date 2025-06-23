@@ -25,8 +25,11 @@ function Select() {
 
       const result = await response.json();
       console.log('Upload successful:', result);
+
   
      localStorage.setItem('result', JSON.stringify(result));
+     localStorage.setItem('filename', file.name);
+     
       navigate('/loader'); 
     } catch (error) {
       console.error('Upload failed ', error);

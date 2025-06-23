@@ -62,7 +62,17 @@ function Home() {
 
       </div>
     
-      <div className='min-h-screen w-full p-2 py-7 bg-[#533e6f] relative'>
+      <div className='min-h-screen w-full p-2 py-7 bg-[#533e6f] relative flex items-center justify-center flex-col'>
+                    <h1 className='mt-10 mb-10 text-2xl font-bold text-white' >Vedio to text recognition pipline  </h1>
+        <div className='h-full w-[80%] overflow-hidden rounded-2xl flex items-center justify-center gap-20 text-white '>
+                  <img src="/image/road.png" className='w-[500px] h-full object-cover rounded-2xl ' alt="" />
+                  <p className='w-96 '>
+                    
+       The video-to-text recognition pipeline starts with 75 grayscale video frames as input. These frames are processed through three 3D Convolutional Layers with ReLU activation and MaxPooling to extract spatio-temporal features. The output is passed through a TimeDistributed Flatten layer, which converts each frame's features into vectors. These vectors are then fed into two Bidirectional LSTM layers (128 units each, in both directions) to capture temporal dependencies, with dropout for regularization. A Dense layer with Softmax follows, predicting character probabilities for each frame. During training, CTC Loss is used for alignment, and during inference, CTC decoding generates the final output text, such as "HELLO".
+
+
+</p>
+        </div>
       
       </div>
     </>
