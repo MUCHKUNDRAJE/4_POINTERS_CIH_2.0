@@ -1,7 +1,9 @@
 import React, { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Select() {
   const fileInputRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleUploadClick = () => {
     fileInputRef.current.click(); // trigger hidden file input
@@ -16,17 +18,20 @@ function Select() {
     console.log(formData);
 
     try {
-      const response = await fetch('https://your-api.com/upload', {
+      const response = await fetch('http://192.168.187.154:5000/predict', {
         method: 'POST',
         body: formData,
       });
 
       const result = await response.json();
       console.log('Upload successful:', result);
+  
+     localStorage.setItem('result', JSON.stringify(result));
+      navigate('/loader'); // go to output page
       alert('Upload successful:', result);
     } catch (error) {
       console.error('Upload failed ', error);
-            alert('Upload failed   ' , error);
+         
     }
   };
 
