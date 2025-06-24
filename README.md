@@ -20,6 +20,7 @@ LipSync is a real-time **lip-reading web app** that uses a custom-trained AI mod
 2. **Select Options**  
    ➤ Choose between webcam input or uploading a pre-recorded video.
    ![alt text](<Screenshot 2025-06-23 170136.png>)
+   ![alt text](<Screenshot 2025-06-24 105613.png>) ![alt text](<Screenshot 2025-06-24 105618.png>)
 
 3. **Upload Video**  
    ➤ Upload your video file containing lip movement.
