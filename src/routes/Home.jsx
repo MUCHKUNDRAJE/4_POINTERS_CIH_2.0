@@ -31,7 +31,7 @@ function Home() {
                  <i class="ri-home-9-line text-2xl"></i>
              </div>
             </Link>
-            
+
               <div className='bg-[#2C263C] h-10 w-10 rounded-full flex items-center justify-center  text-[#533E6F] hover:text-[#2C263C]  hover:border-[1px] border-[#2C263C] hover:border-[#2C263C] transition-all cursor-pointer hover:bg-[#533E6F]' >
              <i class="ri-menu-line text-2xl"></i>
              </div>
@@ -72,6 +72,12 @@ function Home() {
         </div>
       
       </div>
+
+      
+         <div className='flex items-center justify-center flex-col gap-1 w-full h-full  bg-[#533E6F]  p-4 '>
+           <h1 className='text-white font-bold'>Confidence Level</h1>
+             <img src="./image/confidence_level.jpg" className='h-[400px] w-[500px]' alt="" />
+         </div>
     </>
   )
 }

@@ -148,6 +148,8 @@ console.log(tensorArray)
           <h1 className='text-white'>Tensor - Alphaphat conversion</h1>
         <TensorViewer tensor={tensorArray} />
          </div>
+
+
     
     </>
 
