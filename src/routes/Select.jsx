@@ -29,6 +29,7 @@ function Select() {
   
      localStorage.setItem('result', JSON.stringify(result));
      localStorage.setItem('filename', file.name);
+      
      
       navigate('/loader'); 
     } catch (error) {

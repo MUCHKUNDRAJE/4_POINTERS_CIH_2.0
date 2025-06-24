@@ -2,10 +2,32 @@ import React, { useRef, useState, useEffect } from 'react';
 import * as blazeface from '@tensorflow-models/blazeface';
 import '@tensorflow/tfjs';
 import { Typewriter } from 'react-simple-typewriter';
+import TensorViewer from '../components/reusable/TensorAlpha';
 
 function OutputVedio() {
   const videoRef = useRef(null);
   let result = localStorage.getItem('result');
+
+ let resultString = localStorage.getItem('result');
+let tensorArray = [];
+
+try {
+  const parsed = JSON.parse(resultString);
+  const tensorStr = parsed.tensor;
+
+  const tensor = tensorStr
+    .replace(/\n/g, ' ')
+    .replace(/\[|\]/g, '')
+    .trim()
+    .split(/\s+/)
+    .map(Number);
+
+  tensorArray = [tensor];
+} catch (e) {
+  console.error("Failed to parse result from localStorage:", e);
+}
+
+console.log(tensorArray)
   const match = result.match(/"result":"(.*?)"/);
   result = match ? match[1] : null;
   console.log(result); // "bin blue in n nine soon"
@@ -13,6 +35,16 @@ function OutputVedio() {
   const [gifURL, setgifURL] = useState();
   const filename = localStorage.getItem('filename');
   console.log(filename)
+
+
+
+  const tensorData = [
+  [19, 5, 20, 39, 23, 8, 9, 20, 5, 39, 1, 20, 39, 15, 39, 19, 5, 22, 5, 14, 39, 1, 7, 1, 9, 14,
+   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1,
+   -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+];
+
+
 
 
   useEffect(() => {
@@ -39,7 +71,7 @@ function OutputVedio() {
 
 
   return (
-
+    <>
     <div className="min-h-screen w-full bg-gradient-to-br from-[#2c2446] via-[#3f2b63] to-[#1e1a32] flex items-center justify-center p-6">
       <div className="flex flex-col items-center space-y-6 max-w-4xl w-full">
         {/* Title */}
@@ -77,20 +109,48 @@ function OutputVedio() {
         </h1>
       </div>
 
+      <div className='flex items-center justify-center  flex-col gap-10 '> 
+        <div className='flex flex-col  '>
+          <div className='h-[150px] w-[300px] border-3 rounded-2xl overflow-hidden '>
 
-<div className='flex flex-col'>
-<div className='h-[150px] w-[300px] border-3 rounded-2xl overflow-hidden '>
-  
-      {gifURL && <img src={gifURL} className='h-full w-full bg-red-200' alt="Prediction result" />}
-</div >
-<div className='text-white w-64 text-center text-md ml-2 leading-5 mt-3 '>
-  <div></div>
-   visual representation of the input data as seen by the machine learning model during Prediction
-</div>
-     
-</div>
+            {gifURL && <img src={gifURL} className='h-full w-full bg-red-200' alt="Prediction result" />}
+          </div >
+          <div className='text-white w-64 text-center text-md ml-2 leading-5 mt-3 '>
+            <div></div>
+            visual representation of the input data as seen by the machine learning model during Prediction
+          </div>
+        </div>
+
+        <div className='flex items-center justify-center flex-col text-white'>
+        <h1>Video Dimensions</h1>
+        <div className='h-[100px] w-96 flex items-center justify-center '>
+                <div className='w-30 h-full  border-2 flex  flex-col '>
+                     <div className='w-full h-1/2 flex items-center justify-center text-xl text-white font-bold border-b-2  '> Frames </div>
+                     <div className='w-full h-1/2 flex items-center justify-center text-xl text-white font-bold '> 75 </div>
+                </div>
+                  <div className='w-30 h-full  border-2 flex  flex-col '>
+                     <div className='w-full h-1/2 flex items-center justify-center text-xl text-white font-bold border-b-2  '> Height </div>
+                     <div className='w-full h-1/2 flex items-center justify-center text-xl text-white font-bold '> 46 px </div>
+                </div>
+                  <div className='w-30 h-full  border-2 flex  flex-col '>
+                     <div className='w-full h-1/2 flex items-center justify-center text-xl text-white font-bold border-b-2 '> Width </div>
+                     <div className='w-full h-1/2 flex items-center justify-center text-xl text-white font-bold '> 140px </div>
+                </div>
+        </div>
+        </div>
+
+
+
 
     </div>
+      </div>
+         <div className='flex items-center justify-center flex-col gap-1 w-full h-full  bg-[#39285A] p-4 from-[#2c2446] via-[#3f2b63] to-[#1e1a32] '>
+          <h1 className='text-white'>Tensor - Alphaphat conversion</h1>
+        <TensorViewer tensor={tensorArray} />
+         </div>
+    
+    </>
+
   );
 }
 
