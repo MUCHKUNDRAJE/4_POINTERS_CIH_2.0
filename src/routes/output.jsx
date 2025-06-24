@@ -54,7 +54,7 @@ function OutputVedio() {
             src={`/image/${filename}`}
             className="absolute top-0 left-0 w-full h-full object-conatin rounded-2xl"
             muted
-            loop
+            controls
             autoPlay
             playsInline
           />

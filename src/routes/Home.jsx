@@ -31,15 +31,10 @@ function Home() {
                  <i class="ri-home-9-line text-2xl"></i>
              </div>
             </Link>
+            
               <div className='bg-[#2C263C] h-10 w-10 rounded-full flex items-center justify-center  text-[#533E6F] hover:text-[#2C263C]  hover:border-[1px] border-[#2C263C] hover:border-[#2C263C] transition-all cursor-pointer hover:bg-[#533E6F]' >
              <i class="ri-menu-line text-2xl"></i>
              </div>
-
-             <Link to={"/camera"}>
-                 <div className='bg-[#2C263C] h-10 w-10 rounded-full flex items-center justify-center  text-[#533E6F] hover:text-[#2C263C]  hover:border-[1px] border-[#2C263C] hover:border-[#2C263C] transition-all cursor-pointer hover:bg-[#533E6F]' >
-          <i class="ri-mic-line text-2xl"></i>
-             </div>
-             </Link>
        </div>
 
 
@@ -55,18 +50,20 @@ function Home() {
             <div className='h-[36rem] w-full bg-[#2C263C] rounded-4xl '>
                     <video className='h-full w-full object-contain' src="./image/LipSync.mp4" autoPlay muted loop ></video>
             </div>
+            <Link to={"/select"}>
             <div className='h-10 w-40  absolute bottom-3 right-30 rounded xl bg-[#533e6f] flex items-center justify-center text-white cursor-pointer'>
               Get Started <ArrowRight/>
             </div>
+            </Link>
         </div>
 
       </div>
     
       <div className='min-h-screen w-full p-2 py-7 bg-[#533e6f] relative flex items-center justify-center flex-col'>
                     <h1 className='mt-10 mb-10 text-2xl font-bold text-white' >Vedio to text recognition pipline  </h1>
-        <div className='h-full w-[80%] overflow-hidden rounded-2xl flex items-center justify-center gap-20 text-white '>
+        <div className='h-full w-[80%]  overflow-hidden rounded-2xl flex items-center justify-center gap-10 '>
                   <img src="/image/road.png" className='w-[500px] h-full object-cover rounded-2xl ' alt="" />
-                  <p className='w-96 '>
+                  <p className='w-96 text-white '>
                     
        The video-to-text recognition pipeline starts with 75 grayscale video frames as input. These frames are processed through three 3D Convolutional Layers with ReLU activation and MaxPooling to extract spatio-temporal features. The output is passed through a TimeDistributed Flatten layer, which converts each frame's features into vectors. These vectors are then fed into two Bidirectional LSTM layers (128 units each, in both directions) to capture temporal dependencies, with dropout for regularization. A Dense layer with Softmax follows, predicting character probabilities for each frame. During training, CTC Loss is used for alignment, and during inference, CTC decoding generates the final output text, such as "HELLO".
 

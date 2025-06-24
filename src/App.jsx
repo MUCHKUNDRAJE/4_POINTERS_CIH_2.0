@@ -7,17 +7,19 @@ import { Camera } from "lucide-react";
 import CameraCapture from "./routes/camera";
 import Loading from "./routes/loading";
 import OutputVedio from "./routes/output";
+import Collection from "./routes/collection";
 
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-          <Route path="/select" element={<Select />} />
-                   <Route path="/camera" element={<CameraCapture/>} />
+                    <Route path="/" element={<Home />} />
+                    <Route path="/select" element={<Select />} />
+                    <Route path="/camera" element={<CameraCapture/>} />
                     <Route path="/loader" element={<Loading/>} />
-                       <Route path="/output" element={<OutputVedio/>} />
+                    <Route path="/output" element={<OutputVedio/>} />
+                     <Route path="/collection" element={<Collection/>} />
       </Routes>
     </Router>
   );
