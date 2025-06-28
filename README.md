@@ -32,8 +32,9 @@ LipSync is a real-time **lip-reading web app** that uses a custom-trained AI mod
 
 5. **See Output**  
    ➤ View the predicted spoken words based on the lip movements.
-   ![alt text](<Screenshot 2025-06-24 105546.png>)
-   ![alt text](<Screenshot 2025-06-24 105555.png>)
+![image](https://github.com/user-attachments/assets/47557d66-44ca-44b7-bb6f-ee5fed16a182)
+
+
 
 ---
 
